@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Football.fun — World Cup 2026 Distributor Deck</title>
+  <style>
+    :root {
+      --bg: #edf1f7;
+      --surface: rgba(255,255,255,.78);
+      --surface-strong: rgba(255,255,255,.92);
+      --surface-soft: rgba(245,247,251,.9);
+      --text: #09111f;
+      --muted: #5e6a7d;
+      --line: rgba(9,17,31,.10);
+      --line-strong: rgba(9,17,31,.18);
+      --blue: #002466;
+      --blue-2: #4472CA;
+      --red: #D91B26;
+      --green: #1f8f5f;
+      --shadow: 0 24px 80px rgba(7, 16, 29, .08);
+      --radius: 28px;
+      --slide-w: 1600px;
+      --slide-h: 900px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(68,114,202,.14), transparent 28%),
+        radial-gradient(circle at top right, rgba(217,27,38,.10), transparent 24%),
+        linear-gradient(180deg, #f7f9fc 0%, #edf1f7 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.22), transparent 16%, transparent 84%, rgba(255,255,255,.22)),
+        linear-gradient(180deg, rgba(255,255,255,.30), transparent 18%, transparent 82%, rgba(255,255,255,.18));
+      opacity: .8;
+    }
+
+    .deck-shell {
+      width: min(100%, 1760px);
+      margin: 0 auto;
+      padding: 28px 28px 48px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .deck-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.56);
+      backdrop-filter: blur(10px);
+    }
+
+    .deck-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    /* Football.fun wordmark rendered in SVG inline */
+    .ff-wordmark {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .deck-brand-meta { display: flex; flex-direction: column; gap: 2px; }
+    .deck-kicker {
+      font-size: 11px;
+      line-height: 1;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .deck-title-small { font-size: 14px; font-weight: 700; }
+
+    .deck-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.82);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .deck {
+      display: grid;
+      gap: 26px;
+    }
+
+    .slide {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      min-height: 540px;
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(248,250,253,.84));
+      border: 1px solid rgba(9,17,31,.09);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      padding: 42px 46px 38px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      page-break-after: always;
+      backdrop-filter: blur(8px);
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(68,114,202,.10), transparent 30%),
+        radial-gradient(circle at 100% 0%, rgba(217,27,38,.07), transparent 24%),
+        linear-gradient(135deg, rgba(255,255,255,.40), transparent 36%);
+    }
+
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(9,17,31,.06);
+      border-radius: 24px;
+      pointer-events: none;
+    }
+
+    .slide-header,
+    .slide-footer,
+    .slide-body { position: relative; z-index: 1; }
+
+    .slide-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .slide-index {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .slide-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .slide-section::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--red), var(--blue-2));
+    }
+
+    h1, h2, h3, p { margin: 0; }
+    .headline-xl {
+      font-size: clamp(44px, 4vw, 68px);
+      line-height: .95;
+      letter-spacing: -.05em;
+      font-weight: 800;
+      max-width: 12ch;
+    }
+    .headline-lg {
+      font-size: clamp(34px, 3.1vw, 52px);
+      line-height: .98;
+      letter-spacing: -.045em;
+      font-weight: 800;
+      max-width: 13ch;
+    }
+    .headline-md {
+      font-size: clamp(28px, 2.4vw, 40px);
+      line-height: 1.02;
+      letter-spacing: -.04em;
+      font-weight: 800;
+    }
+    .lede {
+      max-width: 64ch;
+      font-size: 18px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .lede strong { color: var(--text); }
+
+    .muted { color: var(--muted); }
+    .mono {
+      font-family: "SFMono-Regular", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      letter-spacing: -.03em;
+    }
+
+    .cover-grid,
+    .two-col,
+    .three-col {
+      display: grid;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .cover-grid { grid-template-columns: 1.2fr .8fr; }
+    .two-col { grid-template-columns: 1.08fr .92fr; }
+    .three-col { grid-template-columns: repeat(3, 1fr); }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 24px;
+      padding: 22px;
+    }
+
+    .panel-soft {
+      border: 1px solid rgba(9,17,31,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(245,247,251,.90));
+      border-radius: 24px;
+      padding: 22px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+    }
+
+    .metric-card {
+      padding: 18px 18px 16px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface-strong);
+      min-height: 126px;
+      display: grid;
+      align-content: space-between;
+      gap: 10px;
+    }
+
+    .metric-label {
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .metric-value {
+      font-size: clamp(26px, 2.4vw, 42px);
+      line-height: .92;
+      letter-spacing: -.06em;
+      font-weight: 800;
+    }
+
+    .metric-note {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .proof-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .proof-chip {
+      min-height: 54px;
+      padding: 12px 16px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.84);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: #233044;
+    }
+
+    .proof-chip img {
+      height: 20px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .proof-chip .wordmark {
+      font-size: 15px;
+      letter-spacing: -.02em;
+      white-space: nowrap;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 152px 1fr;
+      gap: 16px;
+      padding: 16px 0;
+      border-top: 1px solid rgba(9,17,31,.08);
+    }
+    .timeline-item:first-child { border-top: none; padding-top: 0; }
+
+    .timeline-date {
+      font-size: 12px;
+      line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .timeline-copy strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 20px;
+      line-height: 1.1;
+      letter-spacing: -.03em;
+    }
+
+    .timeline-copy p {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .loop-shell {
+      display: grid;
+      grid-template-columns: 1.06fr .94fr;
+      gap: 24px;
+      height: 100%;
+    }
+
+    .loop-visual {
+      border-radius: 28px;
+      border: 1px solid rgba(9,17,31,.08);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.94), rgba(243,247,252,.88)),
+        linear-gradient(135deg, rgba(68,114,202,.08), rgba(217,27,38,.06));
+      padding: 26px;
+      display: grid;
+      align-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .loop-center {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto;
+      border-radius: 50%;
+      border: 1px solid rgba(9,17,31,.10);
+      background: radial-gradient(circle at 50% 45%, rgba(255,255,255,.96), rgba(240,244,249,.88));
+      display: grid;
+      place-items: center;
+      text-align: center;
+      box-shadow: inset 0 0 0 16px rgba(255,255,255,.35);
+      padding: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .loop-center strong {
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: -.04em;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .loop-center span {
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--muted);
+      display: block;
+    }
+
+    .loop-ring {
+      position: absolute;
+      inset: 56px;
+      border-radius: 50%;
+      border: 1.5px dashed rgba(68,114,202,.30);
+      pointer-events: none;
+    }
+
+    .loop-node {
+      position: absolute;
+      width: 168px;
+      min-height: 78px;
+      padding: 14px 14px 12px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.95);
+      border: 1px solid rgba(9,17,31,.10);
+      box-shadow: 0 14px 32px rgba(10, 19, 34, .05);
+    }
+
+    .loop-node b {
+      display: block;
+      font-size: 13px;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      color: var(--blue);
+    }
+
+    .loop-node p {
+      font-size: 13px;
+      line-height: 1.42;
+      color: var(--muted);
+    }
+
+    .loop-node.n1 { top: 22px; left: 50%; transform: translateX(-50%); }
+    .loop-node.n2 { top: 176px; right: 22px; }
+    .loop-node.n3 { bottom: 30px; left: 50%; transform: translateX(-50%); }
+    .loop-node.n4 { top: 176px; left: 22px; }
+
+    .list-block {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .list-block h3 {
+      font-size: 18px;
+      letter-spacing: -.02em;
+      margin-bottom: 2px;
+    }
+
+    .feature-list,
+    .plain-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .feature-list li,
+    .plain-list li {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      align-items: start;
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .feature-list li::before,
+    .plain-list li::before {
+      content: "•";
+      color: var(--red);
+      font-size: 22px;
+      line-height: .9;
+      transform: translateY(1px);
+    }
+
+    .feature-list strong,
+    .plain-list strong { color: var(--text); }
+
+    .value-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .value-card {
+      padding: 20px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.86);
+    }
+
+    .value-card h3 {
+      font-size: 20px;
+      line-height: 1.08;
+      letter-spacing: -.03em;
+      margin-bottom: 8px;
+    }
+
+    .value-card p {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .stats-panel {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--surface);
+      padding: 22px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .stats-panel h3 {
+      font-size: 22px;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+    }
+
+    .stats-grid .stat {
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(9,17,31,.08);
+      background: rgba(255,255,255,.92);
+    }
+
+    .stat .num {
+      display: block;
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -.05em;
+      line-height: .95;
+      margin-bottom: 6px;
+    }
+
+    .stat .sub {
+      font-size: 12px;
+      line-height: 1.45;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .activation-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 16px;
+    }
+
+    .activation-card {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.88);
+      border-radius: 22px;
+      padding: 20px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .activation-card .eyebrow {
+      font-size: 11px;
+      line-height: 1;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--blue);
+    }
+
+    .activation-card h3 {
+      font-size: 22px;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+    }
+
+    .activation-card ul {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .partner-card {
+      min-height: 122px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.88);
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .partner-card img {
+      max-width: 100%;
+      max-height: 28px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .partner-card .partner-word {
+      font-size: 20px;
+      line-height: 1.1;
+      letter-spacing: -.03em;
+      font-weight: 700;
+      color: #1f2a3b;
+    }
+
+    .ask-grid {
+      display: grid;
+      grid-template-columns: 1.04fr .96fr;
+      gap: 20px;
+      height: 100%;
+    }
+
+    .ask-box {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.90);
+      padding: 24px;
+      display: grid;
+      gap: 16px;
+      align-content: start;
+    }
+
+    .ask-box ul {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .closing-band {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 20px;
+      border-radius: 20px;
+      background: linear-gradient(90deg, rgba(0,36,102,.96), rgba(68,114,202,.92));
+      color: white;
+      margin-top: 8px;
+    }
+
+    .closing-band strong {
+      font-size: 18px;
+      line-height: 1.2;
+      letter-spacing: -.02em;
+      max-width: 42ch;
+    }
+
+    .closing-band .tag {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.08);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .slide-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .footer-rule {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(9,17,31,.14), rgba(9,17,31,.04));
+      margin-right: 8px;
+    }
+
+    .cover-mark {
+      display: grid;
+      gap: 14px;
+      align-content: end;
+      justify-items: end;
+      text-align: right;
+      min-height: 100%;
+    }
+
+    .cover-badge {
+      padding: 14px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.86);
+      min-width: 240px;
+    }
+
+    .cover-badge .big {
+      display: block;
+      font-size: 34px;
+      line-height: .95;
+      font-weight: 800;
+      letter-spacing: -.05em;
+      margin-bottom: 6px;
+    }
+
+    .cover-badge .small {
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+
+    .accent-card {
+      background: linear-gradient(145deg, rgba(0,36,102,.95), rgba(68,114,202,.92));
+      color: white;
+      border: none;
+    }
+    .accent-card .metric-label,
+    .accent-card .metric-note,
+    .accent-card .small,
+    .accent-card p,
+    .accent-card .muted { color: rgba(255,255,255,.84); }
+
+    .accent-card .metric-value,
+    .accent-card strong,
+    .accent-card h3,
+    .accent-card .big { color: white; }
+
+    /* ── Leaderboard slide specific ── */
+    .lb-shell {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      height: 100%;
+    }
+
+    .lb-panel {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.88);
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .lb-panel h3 {
+      font-size: 19px;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+    }
+
+    .lb-panel .eyebrow {
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--blue);
+    }
+
+    .lb-row {
+      display: grid;
+      grid-template-columns: 28px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(9,17,31,.07);
+    }
+
+    .lb-row.gold { background: linear-gradient(90deg, rgba(255,196,0,.12), rgba(255,255,255,.92)); border-color: rgba(255,196,0,.30); }
+    .lb-row.silver { background: linear-gradient(90deg, rgba(180,190,200,.10), rgba(255,255,255,.92)); }
+    .lb-row.bronze { background: linear-gradient(90deg, rgba(180,100,40,.09), rgba(255,255,255,.92)); }
+
+    .lb-rank {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .lb-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .lb-score {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--blue);
+      white-space: nowrap;
+    }
+
+    .tourn-card {
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.90);
+      display: grid;
+      gap: 8px;
+    }
+
+    .tourn-card h4 {
+      font-size: 16px;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      font-weight: 800;
+    }
+
+    .tourn-card p {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .tourn-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+    }
+
+    .tourn-tag.free { background: rgba(31,143,95,.12); color: var(--green); }
+    .tourn-tag.paid { background: rgba(0,36,102,.10); color: var(--blue); }
+    .tourn-tag.wc   { background: rgba(217,27,38,.10); color: var(--red); }
+
+    @media (max-width: 1100px) {
+      .deck-shell { padding: 16px; }
+      .slide { padding: 28px 28px 24px; }
+      .cover-grid, .two-col, .three-col, .loop-shell, .stats-row, .activation-grid, .partner-grid, .ask-grid, .lb-shell {
+        grid-template-columns: 1fr;
+      }
+      .loop-node { position: static; width: 100%; transform: none !important; }
+      .loop-visual { gap: 12px; }
+      .loop-ring { display: none; }
+      .loop-center { width: 100%; height: auto; border-radius: 24px; }
+      .metric-grid, .stats-grid { grid-template-columns: 1fr 1fr; }
+      .timeline-item { grid-template-columns: 1fr; }
+      .cover-mark { justify-items: start; text-align: left; }
+    }
+
+    @media print {
+      body { background: white; }
+      body::before, .deck-topbar { display: none !important; }
+      .deck-shell { width: auto; padding: 0; }
+      .deck { gap: 0; }
+      .slide {
+        border-radius: 0;
+        box-shadow: none;
+        break-inside: avoid;
+        page-break-after: always;
+        width: 100%;
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="deck-shell">
+    <div class="deck-topbar">
+      <div class="deck-brand">
+        <img src="public-safe/football-fun-logo-dark.png" alt="Football.fun" class="ff-wordmark" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span style="display:none;font-size:20px;font-weight:800;letter-spacing:-.04em;color:#09111f;">FOOTBALL.FUN</span>
+        <div class="deck-brand-meta">
+          <span class="deck-kicker">Distributor deck</span>
+          <span class="deck-title-small">World Cup 2026 partnership presentation</span>
+        </div>
+      </div>
+      <div class="deck-controls">
+        <span class="pill">16:9 HTML deck</span>
+        <span class="pill">WC light presentation style</span>
+        <span class="pill">Ready to review / export</span>
+      </div>
+    </div>
+
+    <main class="deck">
+
+      <!-- ─── SLIDE 1 — COVER ─── -->
+      <section class="slide" id="slide-1">
+        <div class="slide-header">
+          <div>
+            <div class="slide-index">Slide 1</div>
+            <div class="slide-section">Cover</div>
+          </div>
+        </div>
+        <div class="slide-body cover-grid">
+          <div style="display:grid;align-content:center;gap:24px;">
+            <img src="public-safe/football-fun-logo-dark.png" alt="Football.fun" style="height:44px;width:auto;object-fit:contain;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+            <span style="display:none;font-size:34px;font-weight:800;letter-spacing:-.05em;color:#09111f;">FOOTBALL.FUN</span>
+            <h1 class="headline-xl">The breakout football game built for World Cup retention</h1>
+            <p class="lede">A proven football product, now expanding from crypto-native success into mainstream distribution for <strong>World Cup 2026</strong>.</p>
+            <div class="proof-strip">
+              <span class="proof-chip"><span class="wordmark">Proven product</span></span>
+              <span class="proof-chip"><span class="wordmark">Live leaderboards &amp; tournaments</span></span>
+              <span class="proof-chip"><span class="wordmark">Distributor-ready</span></span>
+            </div>
+          </div>
+          <div class="cover-mark">
+            <div class="cover-badge accent-card">
+              <span class="big">$125m</span>
+              <span class="small">trade volume since launch</span>
+            </div>
+            <div class="cover-badge">
+              <span class="big">20,000</span>
+              <span class="small">paid users already proven in-market</span>
+            </div>
+            <div class="cover-badge">
+              <span class="big">2026</span>
+              <span class="small">the scale moment for mainstream football distribution</span>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer"><div class="footer-rule"></div><span>Football.fun × distributor partnership deck</span></div>
+      </section>
+
+      <!-- ─── SLIDE 2 — TRACTION ─── -->
+      <section class="slide" id="slide-2">
+        <div class="slide-header">
+          <div>
+            <div class="slide-index">Slide 2</div>
+            <div class="slide-section">Traction</div>
+          </div>
+        </div>
+        <div class="slide-body two-col">
+          <div style="display:grid;gap:22px;align-content:start;">
+            <h2 class="headline-lg">From beta success to mainstream launch</h2>
+            <div class="timeline panel-soft">
+              <div class="timeline-item">
+                <div class="timeline-date">Feb–Aug 2025</div>
+                <div class="timeline-copy">
+                  <strong>F2P beta</strong>
+                  <p><strong>+60% D30 retention</strong> across a 2,000-player cohort.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">Aug 2025</div>
+                <div class="timeline-copy">
+                  <strong>Pro launch</strong>
+                  <p><strong>$125m trade volume</strong> and <strong>$10m+ revenue</strong> from 20,000 paid users.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">Launch impact</div>
+                <div class="timeline-copy">
+                  <strong>Attention + credibility</strong>
+                  <p>30m views through partner socials and named one of <strong>Coinbase's breakout apps of 2025</strong>.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">Backing</div>
+                <div class="timeline-copy">
+                  <strong>Top-tier investors</strong>
+                  <p>$3m raised from <strong>Coinbase Ventures, 6th Man Ventures, and Patrice Evra</strong>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="display:grid;gap:16px;align-content:start;">
+            <div class="metric-grid">
+              <div class="metric-card accent-card">
+                <span class="metric-label">D30 retention</span>
+                <span class="metric-value">60%+</span>
+                <span class="metric-note">F2P beta cohort</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">Revenue</span>
+                <span class="metric-value">$10m+</span>
+                <span class="metric-note">From paid users post-launch</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">Trade volume</span>
+                <span class="metric-value">$125m</span>
+                <span class="metric-note">Pro launch traction</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">Social impact</span>
+                <span class="metric-value">30m</span>
+                <span class="metric-note">Launch views via partners</span>
+              </div>
+            </div>
+            <div class="panel">
+              <span class="metric-label">Bottom line</span>
+              <p class="headline-md" style="max-width:16ch;margin-top:8px;">World Cup 2026 is the scale moment.</p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer"><div class="footer-rule"></div><span>Proven retention, monetisation, and attention</span></div>
+      </section>
+
+      <!-- ─── SLIDE 3 — GAME LOOP ─── -->
+      <section class="slide" id="slide-3">
+        <div class="slide-header">
+          <div>
+            <div class="slide-index">Slide 3</div>
+            <div class="slide-section">Game loop</div>
+          </div>
+        </div>
+        <div class="slide-body" style="display:grid;gap:22px;align-content:start;">
+          <div style="display:grid;gap:12px;max-width:980px;">
+            <h2 class="headline-lg">A World Cup game built for emotion, retention, and repeat play</h2>
+            <p class="lede">Football.fun is <strong>not traditional fantasy</strong> and it is <strong>not passive prediction</strong>. It is a live World Cup game built around squad-building, picks, market timing, and repeat matchday decisions.</p>
+          </div>
+          <div class="loop-shell">
+            <div class="loop-visual">
+              <div class="loop-ring"></div>
+              <div class="loop-node n1"><b>Build squad</b><p>Start with <strong>3,300 Gold</strong> across favourites, regulars, differentials, and underdogs.</p></div>
+              <div class="loop-node n2"><b>Set picks</b><p>Choose <strong>5 picks each round</strong> to earn <strong>Skill Rating</strong>.</p></div>
+              <div class="loop-node n3"><b>Transfer / rotate</b><p>React to shocks, eliminations, scarcity, and rising assets between rounds.</p></div>
+              <div class="loop-node n4"><b>Watch + earn</b><p>Your <strong>picks earn SR</strong> while your <strong>squad earns Gold</strong> from the tournament pot.</p></div>
+              <div class="loop-center">
+                <div>
+                  <strong>Repeat</strong>
+                  <span>Build squad → Set picks → Watch matches → Earn SR + Gold → Transfer / rotate → Climb the leaderboard</span>
+                </div>
+              </div>
+            </div>
+            <div class="value-stack">
+              <div class="value-card">
+                <h3>Built for every matchday</h3>
+                <p>Not a set-and-forget team. The loop is designed to pull users back in across the full tournament.</p>
+              </div>
+              <div class="value-card">
+                <h3>Gameplay + market movement + social competition</h3>
+                <p>One product loop combines decision-making, volatility, and leaderboard bragging rights.</p>
+              </div>
+              <div class="value-card">
+                <h3>Multiple winning archetypes</h3>
+                <p>It rewards the SR climber, the Gold accumulator, and the conviction player.</p>
+              </div>
+              <div class="value-card accent-card">
+                <h3>Why it hits differently</h3>
+                <p>Upsets, price spikes, eliminations, late surges, and the post–Round 3 ladder lock all create stronger emotional stakes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer"><div class="footer-rule"></div><span>Retention comes from repeat decisions, sharper stakes, and emotional tournament moments</span></div>
+      </section>
+
+      <!-- ─── SLIDE 4 — LEADERBOARDS & LEAGUES ─── -->
+      <section class="slide" id="slide-4">
+        <div class="slide-header">
+          <div>
+            <div class="slide-index">Slide 4</div>
+            <div class="slide-section">Leaderboards &amp; Leagues</div>
+          </div>
+        </div>
+        <div class="slide-body" style="display:grid;gap:20px;align-content:start;">
+          <div style="display:grid;gap:10px;max-width:900px;">
+            <h2 class="headline-lg">One leaderboard. Every format.</h2>
+            <p class="lede">Football.fun's SR leaderboard is the competitive backbone — <strong>F2P and Pro players compete side by side</strong>, ranked by pure skill. Leagues layer a social and commercial structure on top.</p>
+          </div>
+          <div class="lb-shell">
+
+            <!-- SR Leaderboard -->
+            <div class="lb-panel">
+              <div class="eyebrow">Skill Rating Leaderboard</div>
+              <h3>One table. F2P &amp; Pro.</h3>
+              <div class="lb-row gold">
+                <span class="lb-rank">1</span>
+                <span class="lb-name">@KingKante <span style="font-size:11px;font-weight:700;color:var(--blue);background:rgba(0,36,102,.08);padding:2px 6px;border-radius:6px;">PRO</span></span>
+                <span class="lb-score">4,820 SR</span>
+              </div>
+              <div class="lb-row silver">
+                <span class="lb-rank">2</span>
+                <span class="lb-name">@TacticsTrev <span style="font-size:11px;font-weight:700;color:var(--green);background:rgba(31,143,95,.08);padding:2px 6px;border-radius:6px;">F2P</span></span>
+                <span class="lb-score">4,610 SR</span>
+              </div>
+              <div class="lb-row bronze">
+                <span class="lb-rank">3</span>
+                <span class="lb-name">@BallerIQ <span style="font-size:11px;font-weight:700;color:var(--blue);background:rgba(0,36,102,.08);padding:2px 6px;border-radius:6px;">PRO</span></span>
+                <span class="lb-score">4,480 SR</span>
+              </div>
+              <div class="lb-row">
+                <span class="lb-rank" style="color:var(--muted);font-size:12px;">4</span>
+                <span class="lb-name">@PressBoxPro <span style="font-size:11px;font-weight:700;color:var(--green);background:rgba(31,143,95,.08);padding:2px 6px;border-radius:6px;">F2P</span></span>
+                <span class="lb-score">4,310 SR</span>
+              </div>
+              <p style="font-size:12px;color:var(--muted);margin-top:8px;">Same picks. Same scoring. Same ranking. F2P players beating Pro players is the conversion mechanic — no ad required.</p>
+            </div>
+
+            <!-- League formats -->
+            <div class="lb-panel">
+              <div class="eyebrow">League Formats</div>
+              <h3>Public, Private &amp; Sponsor</h3>
+              <div class="tourn-card">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+                  <h4>Public Leagues</h4>
+                  <span class="tourn-tag free">Open join</span>
+                </div>
+                <p>Club leagues, nation leagues — open to all. Users find their tribe from day one, no friends required.</p>
+              </div>
+              <div class="tourn-card">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+                  <h4>Private Leagues</h4>
+                  <span class="tourn-tag paid">Invite only</span>
+                </div>
+                <p>Friend groups, work colleagues, WhatsApp chats. Shareable invite link. F2P and Pro on the same table.</p>
+              </div>
+              <div class="tourn-card accent-card">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+                  <h4 style="color:white;">Sponsor Leagues</h4>
+                  <span class="tourn-tag wc">Partner-branded</span>
+                </div>
+                <p style="color:rgba(255,255,255,.84);">Sponsors get their own branded private league — a ready-made community of football fans competing under their name, with their prize pool.</p>
+              </div>
+            </div>
+
+            <!-- Why it works -->
+            <div class="lb-panel">
+              <div class="eyebrow">Why it drives distribution</div>
+              <h3>Leagues are the growth engine</h3>
+              <ul class="plain-list" style="margin-top:4px;">
+                <li><span><strong>No friends needed to start.</strong> Public leagues give new users a competitive context from day one.</span></li>
+                <li><span><strong>Invite loop built in.</strong> Private league creators naturally recruit 6–7 friends — the retention inflection point.</span></li>
+                <li><span><strong>F2P → Pro conversion on the leaderboard.</strong> When a F2P player sees Pro players earning real money below them, the upgrade sells itself.</span></li>
+                <li><span><strong>Sponsor leagues = owned audiences.</strong> A branded league gives partners a live, named community for the full World Cup.</span></li>
+              </ul>
+              <div class="closing-band" style="margin-top:10px;padding:14px 16px;">
+                <strong style="font-size:15px;">Every league is a retention loop. Every match is a reason to come back.</strong>
+                <span class="tag">64 matches. 64 storylines.</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="slide-footer"><div class="footer-rule"></div><span>SR leaderboard + leagues = Football.fun's network growth and retention engine</span></div>
+      </section>
+
+      <!-- ─── SLIDE 5 — PARTNER VALUE ─── -->
+      <section class="slide" id="slide-5">
+        <div class="slide-header">
+          <div>
+            <div class="slide-index">Slide 5</div>
+            <div class="slide-section">Partner value</div>
+          </div>
+        </div>
+        <div class="slide-body two-col">
+          <div style="display:grid;gap:16px;align-content:start;">
+            <h2 class="headline-lg">A better product for football distribution</h2>
+            <p class="lede">Partners don't just get a campaign. They get a product — with live leaderboards and tournaments — that keeps audiences coming back.</p>
+            <div class="list-block panel-soft">
+              <h3>What Football.fun delivers</h3>
+              <ul class="feature-list">
+                <li><span><strong>SR leaderboard competition</strong> — F2P and Pro on the same table, all tournament</span></li>
+                <li><span><strong>Repeat matchday engagement</strong> — every match updates the standings</span></li>
+                <li><span><strong>Sponsor leagues</strong> — your branded private league, your audience, your prize pool</span></li>
+                <li><span><strong>First-party engagement signals</strong> from football-loving users</span></li>
+                <li><span><strong>Flexible activation</strong> across editorial, creator, app, and hub environments</span></li>
+              </ul>
+            </div>
+          </div>
+          <div style="display:grid;gap:16px;align-content:start;">
+            <div class="value-card accent-card">
+              <h3>Commercial value for partners</h3>
+              <p>Traffic, repeat sessions, sponsorship inventory, and a football product audiences return to for every match — driven by leaderboard stakes and tournament formats.</p>
+            </div>
+            <div class="metric-grid">
+              <div class="metric-card"><span class="metric-label">Traffic</span><span class="metric-value">Driven</span><span class="metric-note">Every matchday is a live reason to return</span></div>
+              <div class="metric-card"><span class="metric-label">Sessions</span><span class="metric-value">Repeated</span><span class="metric-note">Leaderboard tension keeps users hooked</span></div>
+              <div class="metric-card"><span class="metric-label">Inventory</span><span class="metric-value">Created</span><span class="metric-note">Natural sponsorship and creator surfaces</span></div>
+              <div class="metric-card"><span class="metric-label">Sponsor League</span><span class="metric-value">Branded</span><span class="metric-note">Your name. Your prize pool. Your audience.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer"><div class="footer-rule"></div><span>Designed as a retention product, not a one-off campaign</span></div>
+      </section>
+
+      <!-- ─── SLIDE 6 — SOCIAL PROOF ─── -->
+      <section class="slide" id="slide-6">
+        <div class="slide-header">
+          <div>
+            <div class="slide-index">Slide 6</div>
+            <div class="slide-section">Social proof</div>
+          </div>
+        </div>
+        <div class="slide-body" style="display:grid;gap:22px;align-content:start;">
+          <div style="display:grid;gap:12px;max-width:980px;">
+            <h2 class="headline-lg">We already know how to drive football attention</h2>
+            <p class="lede">We already have the attention engine. <strong>World Cup is where we scale it.</strong></p>
+          </div>
+          <div class="stats-row">
+            <div class="stats-panel">
+              <h3>Football.fun X <span class="muted">(last 12 months)</span></h3>
+              <div class="stats-grid">
+                <div class="stat"><span class="num">12.3M</span><span class="sub">Impressions</span></div>
+                <div class="stat"><span class="num">553.1K</span><span class="sub">Engagements</span></div>
+                <div class="stat"><span class="num">4.4%</span><span class="sub">Engagement rate</span></div>
+                <div class="stat"><span class="num">43.7K</span><span class="sub">Followers</span></div>
+              </div>
+            </div>
+            <div class="stats-panel">
+              <h3>Football.fun News <span class="muted">(launched 1 month ago)</span></h3>
+              <div class="stats-grid">
+                <div class="stat"><span class="num">242K</span><span class="sub">Instagram views</span></div>
+                <div class="stat"><span class="num">104.9K</span><span class="sub">Accounts reached (+140%)</span></div>
+                <div class="stat"><span class="num">170K</span><span class="sub">TikTok views (+815%)</span></div>
+                <div class="stat"><span class="num">12,830</span><span class="sub">TikTok followers</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="closing-band">
+            <strong>Attention is already proven. The World Cup opportunity is turning that attention into much broader repeat product distribution — fuelled by live tournaments and leaderboard competition.</strong>
+            <span class="tag">Attention engine established</span>
+          </div>
+        </div>
+        <div class="slide-footer"><div class="footer-rule"></div><span>Audience growth and engagement are already live, not theoretical</span></div>
+      </section>
+
+      <!-- ─── SLIDE 7 — ACTIVATION PLAN ─── -->
+      <section class="slide" id="slide-7">
+        <div class="slide-header">
+          <div>
+            <div class="slide-index">Slide 7</div>
+            <div class="slide-section">Activation plan</div>
+          </div>
+        </div>
+        <div class="slide-body" style="display:grid;gap:20px;align-content:start;">
+          <div style="display:grid;gap:12px;max-width:1020px;">
+            <h2 class="headline-lg">How we plan to own the conversation</h2>
+            <p class="lede">A World Cup activation model built around live moments, tournament launches, creator distribution, and community conversion.</p>
+          </div>
+          <div class="activation-grid">
+            <article class="activation-card">
+              <span class="eyebrow">01</span>
+              <h3>Live Watchalongs</h3>
+              <ul>
+                <li>Live show for every World Cup match</li>
+                <li>Hosted with key streamers and creators</li>
+                <li>Built for real-time leaderboard reactions and peak-moment virality</li>
+              </ul>
+            </article>
+            <article class="activation-card">
+              <span class="eyebrow">02</span>
+              <h3>Clipping &amp; Distribution Network</h3>
+              <ul>
+                <li>Dedicated clipping network across football fan accounts, meme pages, and culture pages</li>
+                <li>Turns every leaderboard upset into multiple viral content moments</li>
+              </ul>
+            </article>
+            <article class="activation-card">
+              <span class="eyebrow">03</span>
+              <h3>Creator Network</h3>
+              <ul>
+                <li>10+ ambassadors across football analytics, FPL, Sorare, and football culture</li>
+                <li>Bespoke activation with Patrice Evra</li>
+                <li>Tournament leaderboard callouts as content format</li>
+              </ul>
+            </article>
+            <article class="activation-card accent-card">
+              <span class="eyebrow" style="color:rgba(255,255,255,.70);">04</span>
+              <h3>Fantasy &amp; Community Distribution</h3>
+              <ul style="color:rgba(255,255,255,.84);">
+                <li>Football Fantasy Scout covering Football.fun as a key World Cup game</li>
+                <li>Partner-branded private leagues as community activation</li>
+                <li>Targeted reach into existing football gaming communities</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+        <div class="slide-footer"><div class="footer-rule"></div><span>Live shows, clipped moments, creators, and conversion-focused community reach</span></div>
+      </section>
+
+      <!-- ─── SLIDE 8 — EXISTING PARTNERS ─── -->
+      <section class="slide" id="slide-8">
+        <div class="slide-header">
+          <div>
+            <div class="slide-index">Slide 8</div>
+            <div class="slide-section">Existing partners</div>
+          </div>
+        </div>
+        <div class="slide-body" style="display:grid;gap:24px;align-content:start;">
+          <div style="display:grid;gap:12px;max-width:980px;">
+            <h2 class="headline-lg">Trusted by leading football and fantasy platforms</h2>
+            <p class="lede">Our partners already span football media, fantasy, and consumer platforms.</p>
+          </div>
+          <div class="partner-grid">
+            <div class="partner-card">
+              <img src="public-safe/onefootball-logo.png" alt="OneFootball Games Hub" />
+            </div>
+            <div class="partner-card">
+              <div class="partner-word">Fantasy Football Scout</div>
+            </div>
+            <div class="partner-card">
+              <div class="partner-word">RotoWire</div>
+            </div>
+            <div class="partner-card">
+              <div class="partner-word">Coinbase</div>
+            </div>
+          </div>
+          <div class="panel-soft" style="display:grid;gap:12px;max-width:860px;">
+            <span class="metric-label">Partner categories already proven</span>
+            <div class="proof-strip">
+              <span class="proof-chip"><span class="wordmark">Football media</span></span>
+              <span class="proof-chip"><span class="wordmark">Fantasy platforms</span></span>
+              <span class="proof-chip"><span class="wordmark">Consumer distribution</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer"><div class="footer-rule"></div><span>Existing platform trust supports wider World Cup rollout conversations</span></div>
+      </section>
+
+      <!-- ─── SLIDE 9 — THE ASK ─── -->
+      <section class="slide" id="slide-9">
+        <div class="slide-header">
+          <div>
+            <div class="slide-index">Slide 9</div>
+            <div class="slide-section">The ask</div>
+          </div>
+        </div>
+        <div class="slide-body ask-grid">
+          <div class="ask-box">
+            <h2 class="headline-lg" style="max-width:12ch;">What we're looking for</h2>
+            <ul>
+              <li><strong>Distribution partners</strong> with football-loving audiences</li>
+              <li><strong>Brand and sponsorship partners</strong> for World Cup 2026 activations</li>
+              <li><strong>Platform partners</strong> for both free-to-play and paid variants</li>
+              <li><strong>Sponsor league partners</strong> — brands who want a named, live community for the full tournament</li>
+            </ul>
+          </div>
+          <div class="ask-box accent-card">
+            <h2 class="headline-md" style="max-width:12ch;">What partners get</h2>
+            <ul style="color:rgba(255,255,255,.84);">
+              <li>A sponsor league — your brand, your prize pool, on the Football.fun SR leaderboard</li>
+              <li>A captive football audience competing under your name for 64 matches</li>
+              <li>Traffic, engagement, and repeat sessions driven by live competition</li>
+              <li>Access to a product already proven with football audiences</li>
+            </ul>
+          </div>
+        </div>
+        <div class="slide-body" style="display:grid;gap:18px;align-content:end;">
+          <div class="closing-band">
+            <strong>World Cup 2026 is the moment to scale Football.fun to a much wider football audience.</strong>
+            <span class="tag">Now seeking partners</span>
+          </div>
+        </div>
+        <div class="slide-footer"><div class="footer-rule"></div><span>Football.fun — World Cup 2026 partnership opportunity</span></div>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>
