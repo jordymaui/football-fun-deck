@@ -74,13 +74,7 @@
       min-width: 0;
     }
 
-    /* Football.fun wordmark rendered in SVG inline */
-    .ff-wordmark {
-      height: 28px;
-      width: auto;
-      display: block;
-    }
-
+    .deck-brand img { height: 24px; width: auto; }
     .deck-brand-meta { display: flex; flex-direction: column; gap: 2px; }
     .deck-kicker {
       font-size: 11px;
@@ -771,115 +765,10 @@
     .accent-card h3,
     .accent-card .big { color: white; }
 
-    /* ── Leaderboard slide specific ── */
-    .lb-shell {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 20px;
-      height: 100%;
-    }
-
-    .lb-panel {
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: rgba(255,255,255,.88);
-      padding: 22px;
-      display: grid;
-      gap: 14px;
-      align-content: start;
-    }
-
-    .lb-panel h3 {
-      font-size: 19px;
-      line-height: 1.05;
-      letter-spacing: -.03em;
-    }
-
-    .lb-panel .eyebrow {
-      font-size: 11px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      font-weight: 800;
-      color: var(--blue);
-    }
-
-    .lb-row {
-      display: grid;
-      grid-template-columns: 28px 1fr auto;
-      gap: 10px;
-      align-items: center;
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.92);
-      border: 1px solid rgba(9,17,31,.07);
-    }
-
-    .lb-row.gold { background: linear-gradient(90deg, rgba(255,196,0,.12), rgba(255,255,255,.92)); border-color: rgba(255,196,0,.30); }
-    .lb-row.silver { background: linear-gradient(90deg, rgba(180,190,200,.10), rgba(255,255,255,.92)); }
-    .lb-row.bronze { background: linear-gradient(90deg, rgba(180,100,40,.09), rgba(255,255,255,.92)); }
-
-    .lb-rank {
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: -.02em;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    .lb-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .lb-score {
-      font-size: 13px;
-      font-weight: 800;
-      color: var(--blue);
-      white-space: nowrap;
-    }
-
-    .tourn-card {
-      padding: 18px;
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.90);
-      display: grid;
-      gap: 8px;
-    }
-
-    .tourn-card h4 {
-      font-size: 16px;
-      line-height: 1.1;
-      letter-spacing: -.02em;
-      font-weight: 800;
-    }
-
-    .tourn-card p {
-      font-size: 13px;
-      line-height: 1.5;
-      color: var(--muted);
-    }
-
-    .tourn-tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .10em;
-      text-transform: uppercase;
-    }
-
-    .tourn-tag.free { background: rgba(31,143,95,.12); color: var(--green); }
-    .tourn-tag.paid { background: rgba(0,36,102,.10); color: var(--blue); }
-    .tourn-tag.wc   { background: rgba(217,27,38,.10); color: var(--red); }
-
     @media (max-width: 1100px) {
       .deck-shell { padding: 16px; }
       .slide { padding: 28px 28px 24px; }
-      .cover-grid, .two-col, .three-col, .loop-shell, .stats-row, .activation-grid, .partner-grid, .ask-grid, .lb-shell {
+      .cover-grid, .two-col, .three-col, .loop-shell, .stats-row, .activation-grid, .partner-grid, .ask-grid {
         grid-template-columns: 1fr;
       }
       .loop-node { position: static; width: 100%; transform: none !important; }
@@ -911,8 +800,7 @@
   <div class="deck-shell">
     <div class="deck-topbar">
       <div class="deck-brand">
-        <img src="public-safe/football-fun-logo-dark.png" alt="Football.fun" class="ff-wordmark" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
-        <span style="display:none;font-size:20px;font-weight:800;letter-spacing:-.04em;color:#09111f;">FOOTBALL.FUN</span>
+        <span style="font-size:22px;font-weight:800;letter-spacing:-.04em;color:#09111f;">Football.fun</span>
         <div class="deck-brand-meta">
           <span class="deck-kicker">Distributor deck</span>
           <span class="deck-title-small">World Cup 2026 partnership presentation</span>
@@ -926,8 +814,6 @@
     </div>
 
     <main class="deck">
-
-      <!-- ─── SLIDE 1 — COVER ─── -->
       <section class="slide" id="slide-1">
         <div class="slide-header">
           <div>
@@ -937,13 +823,12 @@
         </div>
         <div class="slide-body cover-grid">
           <div style="display:grid;align-content:center;gap:24px;">
-            <img src="public-safe/football-fun-logo-dark.png" alt="Football.fun" style="height:44px;width:auto;object-fit:contain;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
-            <span style="display:none;font-size:34px;font-weight:800;letter-spacing:-.05em;color:#09111f;">FOOTBALL.FUN</span>
+            <span style="font-size:38px;font-weight:800;letter-spacing:-.05em;color:#09111f;line-height:1;">Football.fun</span>
             <h1 class="headline-xl">The breakout football game built for World Cup retention</h1>
-            <p class="lede">A proven football product, now expanding from crypto-native success into mainstream distribution for <strong>World Cup 2026</strong>.</p>
+            <p class="lede">A proven football prediction product, now expanding from crypto-native success into mainstream distribution for <strong>World Cup 2026</strong>.</p>
             <div class="proof-strip">
               <span class="proof-chip"><span class="wordmark">Proven product</span></span>
-              <span class="proof-chip"><span class="wordmark">Live leaderboards &amp; tournaments</span></span>
+              <span class="proof-chip"><span class="wordmark">Retention-led loop</span></span>
               <span class="proof-chip"><span class="wordmark">Distributor-ready</span></span>
             </div>
           </div>
@@ -965,7 +850,6 @@
         <div class="slide-footer"><div class="footer-rule"></div><span>Football.fun × distributor partnership deck</span></div>
       </section>
 
-      <!-- ─── SLIDE 2 — TRACTION ─── -->
       <section class="slide" id="slide-2">
         <div class="slide-header">
           <div>
@@ -995,7 +879,7 @@
                 <div class="timeline-date">Launch impact</div>
                 <div class="timeline-copy">
                   <strong>Attention + credibility</strong>
-                  <p>30m views through partner socials and named one of <strong>Coinbase's breakout apps of 2025</strong>.</p>
+                  <p>30m views through partner socials and named one of <strong>Coinbase’s breakout apps of 2025</strong>.</p>
                 </div>
               </div>
               <div class="timeline-item">
@@ -1039,7 +923,6 @@
         <div class="slide-footer"><div class="footer-rule"></div><span>Proven retention, monetisation, and attention</span></div>
       </section>
 
-      <!-- ─── SLIDE 3 — GAME LOOP ─── -->
       <section class="slide" id="slide-3">
         <div class="slide-header">
           <div>
@@ -1062,7 +945,7 @@
               <div class="loop-center">
                 <div>
                   <strong>Repeat</strong>
-                  <span>Build squad → Set picks → Watch matches → Earn SR + Gold → Transfer / rotate → Climb the leaderboard</span>
+                  <span>Build squad → Set picks → Watch matches → Earn SR + Gold → Transfer / rotate → Climb divisions</span>
                 </div>
               </div>
             </div>
@@ -1073,7 +956,7 @@
               </div>
               <div class="value-card">
                 <h3>Gameplay + market movement + social competition</h3>
-                <p>One product loop combines decision-making, volatility, and leaderboard bragging rights.</p>
+                <p>One product loop combines decision-making, volatility, and community bragging rights.</p>
               </div>
               <div class="value-card">
                 <h3>Multiple winning archetypes</h3>
@@ -1089,7 +972,6 @@
         <div class="slide-footer"><div class="footer-rule"></div><span>Retention comes from repeat decisions, sharper stakes, and emotional tournament moments</span></div>
       </section>
 
-      <!-- ─── SLIDE 4 — LEADERBOARDS & LEAGUES ─── -->
       <section class="slide" id="slide-4">
         <div class="slide-header">
           <div>
@@ -1097,89 +979,35 @@
             <div class="slide-section">Leaderboards &amp; Leagues</div>
           </div>
         </div>
-        <div class="slide-body" style="display:grid;gap:20px;align-content:start;">
-          <div style="display:grid;gap:10px;max-width:900px;">
-            <h2 class="headline-lg">One leaderboard. Every format.</h2>
-            <p class="lede">Football.fun's SR leaderboard is the competitive backbone — <strong>F2P and Pro players compete side by side</strong>, ranked by pure skill. Leagues layer a social and commercial structure on top.</p>
-          </div>
-          <div class="lb-shell">
-
-            <!-- SR Leaderboard -->
-            <div class="lb-panel">
-              <div class="eyebrow">Skill Rating Leaderboard</div>
-              <h3>One table. F2P &amp; Pro.</h3>
-              <div class="lb-row gold">
-                <span class="lb-rank">1</span>
-                <span class="lb-name">@KingKante <span style="font-size:11px;font-weight:700;color:var(--blue);background:rgba(0,36,102,.08);padding:2px 6px;border-radius:6px;">PRO</span></span>
-                <span class="lb-score">4,820 SR</span>
-              </div>
-              <div class="lb-row silver">
-                <span class="lb-rank">2</span>
-                <span class="lb-name">@TacticsTrev <span style="font-size:11px;font-weight:700;color:var(--green);background:rgba(31,143,95,.08);padding:2px 6px;border-radius:6px;">F2P</span></span>
-                <span class="lb-score">4,610 SR</span>
-              </div>
-              <div class="lb-row bronze">
-                <span class="lb-rank">3</span>
-                <span class="lb-name">@BallerIQ <span style="font-size:11px;font-weight:700;color:var(--blue);background:rgba(0,36,102,.08);padding:2px 6px;border-radius:6px;">PRO</span></span>
-                <span class="lb-score">4,480 SR</span>
-              </div>
-              <div class="lb-row">
-                <span class="lb-rank" style="color:var(--muted);font-size:12px;">4</span>
-                <span class="lb-name">@PressBoxPro <span style="font-size:11px;font-weight:700;color:var(--green);background:rgba(31,143,95,.08);padding:2px 6px;border-radius:6px;">F2P</span></span>
-                <span class="lb-score">4,310 SR</span>
-              </div>
-              <p style="font-size:12px;color:var(--muted);margin-top:8px;">Same picks. Same scoring. Same ranking. F2P players beating Pro players is the conversion mechanic — no ad required.</p>
-            </div>
-
-            <!-- League formats -->
-            <div class="lb-panel">
-              <div class="eyebrow">League Formats</div>
-              <h3>Public, Private &amp; Sponsor</h3>
-              <div class="tourn-card">
-                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
-                  <h4>Public Leagues</h4>
-                  <span class="tourn-tag free">Open join</span>
-                </div>
-                <p>Club leagues, nation leagues — open to all. Users find their tribe from day one, no friends required.</p>
-              </div>
-              <div class="tourn-card">
-                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
-                  <h4>Private Leagues</h4>
-                  <span class="tourn-tag paid">Invite only</span>
-                </div>
-                <p>Friend groups, work colleagues, WhatsApp chats. Shareable invite link. F2P and Pro on the same table.</p>
-              </div>
-              <div class="tourn-card accent-card">
-                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
-                  <h4 style="color:white;">Sponsor Leagues</h4>
-                  <span class="tourn-tag wc">Partner-branded</span>
-                </div>
-                <p style="color:rgba(255,255,255,.84);">Sponsors get their own branded private league — a ready-made community of football fans competing under their name, with their prize pool.</p>
-              </div>
-            </div>
-
-            <!-- Why it works -->
-            <div class="lb-panel">
-              <div class="eyebrow">Why it drives distribution</div>
-              <h3>Leagues are the growth engine</h3>
-              <ul class="plain-list" style="margin-top:4px;">
-                <li><span><strong>No friends needed to start.</strong> Public leagues give new users a competitive context from day one.</span></li>
-                <li><span><strong>Invite loop built in.</strong> Private league creators naturally recruit 6–7 friends — the retention inflection point.</span></li>
-                <li><span><strong>F2P → Pro conversion on the leaderboard.</strong> When a F2P player sees Pro players earning real money below them, the upgrade sells itself.</span></li>
-                <li><span><strong>Sponsor leagues = owned audiences.</strong> A branded league gives partners a live, named community for the full World Cup.</span></li>
+        <div class="slide-body two-col">
+          <div style="display:grid;gap:16px;align-content:start;">
+            <h2 class="headline-lg">SR leaderboards. Public, private &amp; sponsor leagues.</h2>
+            <p class="lede">Football.fun's <strong>Skill Rating leaderboard</strong> is the competitive backbone of the game. F2P and Pro players compete side by side — same picks, same scoring, same ranking. Leagues layer social and commercial structure on top.</p>
+            <div class="list-block panel-soft">
+              <h3>Three league formats</h3>
+              <ul class="feature-list">
+                <li><span><strong>Public leagues</strong> — open to anyone. Club and nation leagues built around shared identity. Users find their community from day one.</span></li>
+                <li><span><strong>Private leagues</strong> — invite-only. Created by users for friend groups, WhatsApp chats, colleagues. The primary social growth mechanic.</span></li>
+                <li><span><strong>Sponsor leagues</strong> — a branded private league for a partner’s audience. Your name, your prize pool, your community — for 64 matches.</span></li>
               </ul>
-              <div class="closing-band" style="margin-top:10px;padding:14px 16px;">
-                <strong style="font-size:15px;">Every league is a retention loop. Every match is a reason to come back.</strong>
-                <span class="tag">64 matches. 64 storylines.</span>
-              </div>
             </div>
-
+          </div>
+          <div style="display:grid;gap:16px;align-content:start;">
+            <div class="value-card accent-card">
+              <h3>Why the shared leaderboard matters</h3>
+              <p>F2P and Pro players are ranked together with [F2P] and [PRO] badges. When a free player finishes above Pro players earning real money, the upgrade sells itself — no ad required.</p>
+            </div>
+            <div class="metric-grid">
+              <div class="metric-card"><span class="metric-label">F2P Prize Pool</span><span class="metric-value">$20–30k</span><span class="metric-note">Global pool across all F2P leagues</span></div>
+              <div class="metric-card"><span class="metric-label">Pro Prize Pool</span><span class="metric-value">Real cash</span><span class="metric-note">Funded by the Pro prize structure</span></div>
+              <div class="metric-card"><span class="metric-label">League size</span><span class="metric-value">Unlimited</span><span class="metric-note">No cap on public or private leagues</span></div>
+              <div class="metric-card"><span class="metric-label">Sponsor leagues</span><span class="metric-value">Branded</span><span class="metric-note">Partner name, prize pool, and audience</span></div>
+            </div>
           </div>
         </div>
-        <div class="slide-footer"><div class="footer-rule"></div><span>SR leaderboard + leagues = Football.fun's network growth and retention engine</span></div>
+        <div class="slide-footer"><div class="footer-rule"></div><span>Leaderboards drive retention. Leagues drive distribution.</span></div>
       </section>
 
-      <!-- ─── SLIDE 5 — PARTNER VALUE ─── -->
       <section class="slide" id="slide-5">
         <div class="slide-header">
           <div>
@@ -1190,13 +1018,13 @@
         <div class="slide-body two-col">
           <div style="display:grid;gap:16px;align-content:start;">
             <h2 class="headline-lg">A better product for football distribution</h2>
-            <p class="lede">Partners don't just get a campaign. They get a product — with live leaderboards and tournaments — that keeps audiences coming back.</p>
+            <p class="lede">Partners don’t just get a campaign. They get a product that keeps audiences coming back.</p>
             <div class="list-block panel-soft">
               <h3>What Football.fun delivers</h3>
               <ul class="feature-list">
-                <li><span><strong>SR leaderboard competition</strong> — F2P and Pro on the same table, all tournament</span></li>
-                <li><span><strong>Repeat matchday engagement</strong> — every match updates the standings</span></li>
-                <li><span><strong>Sponsor leagues</strong> — your branded private league, your audience, your prize pool</span></li>
+                <li><span><strong>High-retention football gameplay</strong></span></li>
+                <li><span><strong>Repeat matchday engagement</strong> across the full tournament</span></li>
+                <li><span><strong>Strong creator and content hooks</strong></span></li>
                 <li><span><strong>First-party engagement signals</strong> from football-loving users</span></li>
                 <li><span><strong>Flexible activation</strong> across editorial, creator, app, and hub environments</span></li>
               </ul>
@@ -1205,20 +1033,19 @@
           <div style="display:grid;gap:16px;align-content:start;">
             <div class="value-card accent-card">
               <h3>Commercial value for partners</h3>
-              <p>Traffic, repeat sessions, sponsorship inventory, and a football product audiences return to for every match — driven by leaderboard stakes and tournament formats.</p>
+              <p>Traffic, repeat sessions, sponsorship inventory, and a football product audiences can return to throughout the tournament.</p>
             </div>
             <div class="metric-grid">
-              <div class="metric-card"><span class="metric-label">Traffic</span><span class="metric-value">Driven</span><span class="metric-note">Every matchday is a live reason to return</span></div>
-              <div class="metric-card"><span class="metric-label">Sessions</span><span class="metric-value">Repeated</span><span class="metric-note">Leaderboard tension keeps users hooked</span></div>
+              <div class="metric-card"><span class="metric-label">Traffic</span><span class="metric-value">Driven</span><span class="metric-note">A live reason to come back each matchday</span></div>
+              <div class="metric-card"><span class="metric-label">Sessions</span><span class="metric-value">Repeated</span><span class="metric-note">Retention-led behaviour through the full event</span></div>
               <div class="metric-card"><span class="metric-label">Inventory</span><span class="metric-value">Created</span><span class="metric-note">Natural sponsorship and creator surfaces</span></div>
-              <div class="metric-card"><span class="metric-label">Sponsor League</span><span class="metric-value">Branded</span><span class="metric-note">Your name. Your prize pool. Your audience.</span></div>
+              <div class="metric-card"><span class="metric-label">Audience</span><span class="metric-value">Owned</span><span class="metric-note">Football-loving users with first-party signals</span></div>
             </div>
           </div>
         </div>
         <div class="slide-footer"><div class="footer-rule"></div><span>Designed as a retention product, not a one-off campaign</span></div>
       </section>
 
-      <!-- ─── SLIDE 6 — SOCIAL PROOF ─── -->
       <section class="slide" id="slide-6">
         <div class="slide-header">
           <div>
@@ -1252,14 +1079,13 @@
             </div>
           </div>
           <div class="closing-band">
-            <strong>Attention is already proven. The World Cup opportunity is turning that attention into much broader repeat product distribution — fuelled by live tournaments and leaderboard competition.</strong>
+            <strong>Attention is already proven. The World Cup opportunity is turning that attention into much broader repeat product distribution.</strong>
             <span class="tag">Attention engine established</span>
           </div>
         </div>
         <div class="slide-footer"><div class="footer-rule"></div><span>Audience growth and engagement are already live, not theoretical</span></div>
       </section>
 
-      <!-- ─── SLIDE 7 — ACTIVATION PLAN ─── -->
       <section class="slide" id="slide-7">
         <div class="slide-header">
           <div>
@@ -1270,7 +1096,7 @@
         <div class="slide-body" style="display:grid;gap:20px;align-content:start;">
           <div style="display:grid;gap:12px;max-width:1020px;">
             <h2 class="headline-lg">How we plan to own the conversation</h2>
-            <p class="lede">A World Cup activation model built around live moments, tournament launches, creator distribution, and community conversion.</p>
+            <p class="lede">A World Cup activation model built around live moments, creator distribution, and community conversion.</p>
           </div>
           <div class="activation-grid">
             <article class="activation-card">
@@ -1279,7 +1105,7 @@
               <ul>
                 <li>Live show for every World Cup match</li>
                 <li>Hosted with key streamers and creators</li>
-                <li>Built for real-time leaderboard reactions and peak-moment virality</li>
+                <li>Built for real-time engagement and peak-moment virality</li>
               </ul>
             </article>
             <article class="activation-card">
@@ -1287,7 +1113,7 @@
               <h3>Clipping &amp; Distribution Network</h3>
               <ul>
                 <li>Dedicated clipping network across football fan accounts, meme pages, and culture pages</li>
-                <li>Turns every leaderboard upset into multiple viral content moments</li>
+                <li>Turns every match into multiple viral content moments tied back to the platform</li>
               </ul>
             </article>
             <article class="activation-card">
@@ -1296,16 +1122,14 @@
               <ul>
                 <li>10+ ambassadors across football analytics, FPL, Sorare, and football culture</li>
                 <li>Bespoke activation with Patrice Evra</li>
-                <li>Tournament leaderboard callouts as content format</li>
               </ul>
             </article>
             <article class="activation-card accent-card">
               <span class="eyebrow" style="color:rgba(255,255,255,.70);">04</span>
               <h3>Fantasy &amp; Community Distribution</h3>
               <ul style="color:rgba(255,255,255,.84);">
-                <li>Football Fantasy Scout covering Football.fun as a key World Cup game</li>
-                <li>Partner-branded private leagues as community activation</li>
-                <li>Targeted reach into existing football gaming communities</li>
+                <li>Football Fantasy Scout covering FDF as a key World Cup game</li>
+                <li>Targeted reach into existing football gaming communities ready to convert</li>
               </ul>
             </article>
           </div>
@@ -1313,7 +1137,6 @@
         <div class="slide-footer"><div class="footer-rule"></div><span>Live shows, clipped moments, creators, and conversion-focused community reach</span></div>
       </section>
 
-      <!-- ─── SLIDE 8 — EXISTING PARTNERS ─── -->
       <section class="slide" id="slide-8">
         <div class="slide-header">
           <div>
@@ -1352,7 +1175,6 @@
         <div class="slide-footer"><div class="footer-rule"></div><span>Existing platform trust supports wider World Cup rollout conversations</span></div>
       </section>
 
-      <!-- ─── SLIDE 9 — THE ASK ─── -->
       <section class="slide" id="slide-9">
         <div class="slide-header">
           <div>
@@ -1362,33 +1184,31 @@
         </div>
         <div class="slide-body ask-grid">
           <div class="ask-box">
-            <h2 class="headline-lg" style="max-width:12ch;">What we're looking for</h2>
+            <h2 class="headline-lg" style="max-width:12ch;">What we’re looking for</h2>
             <ul>
               <li><strong>Distribution partners</strong> with football-loving audiences</li>
               <li><strong>Brand and sponsorship partners</strong> for World Cup 2026 activations</li>
               <li><strong>Platform partners</strong> for both free-to-play and paid variants</li>
-              <li><strong>Sponsor league partners</strong> — brands who want a named, live community for the full tournament</li>
             </ul>
           </div>
           <div class="ask-box accent-card">
             <h2 class="headline-md" style="max-width:12ch;">What partners get</h2>
             <ul style="color:rgba(255,255,255,.84);">
-              <li>A sponsor league — your brand, your prize pool, on the Football.fun SR leaderboard</li>
-              <li>A captive football audience competing under your name for 64 matches</li>
-              <li>Traffic, engagement, and repeat sessions driven by live competition</li>
+              <li>A sticky, retention-led football game</li>
+              <li>Premium placement in an exciting World Cup product</li>
+              <li>Traffic, engagement, and repeat sessions</li>
               <li>Access to a product already proven with football audiences</li>
             </ul>
           </div>
         </div>
         <div class="slide-body" style="display:grid;gap:18px;align-content:end;">
           <div class="closing-band">
-            <strong>World Cup 2026 is the moment to scale Football.fun to a much wider football audience.</strong>
+            <strong>World Cup 2026 is the moment to scale this product to a much wider football audience.</strong>
             <span class="tag">Now seeking partners</span>
           </div>
         </div>
         <div class="slide-footer"><div class="footer-rule"></div><span>Football.fun — World Cup 2026 partnership opportunity</span></div>
       </section>
-
     </main>
   </div>
 </body>
